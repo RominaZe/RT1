@@ -92,6 +92,7 @@ Each `Marker` object has the following attributes:
 ### How the Program Works ###
 
 
+![Flowchart](https://github.com/RominaZe/RT1/assets/146995126/c2728ab1-fb08-497c-98f3-c044056fdbff)
 
 
 
