@@ -85,10 +85,10 @@ Explanation
 ------------
  This project's goal is to grab every token of a certain area a then put it all together in one point.
  The code should make the robot:
-	* Go to the center of the arena
-	* See the markers that are in the area
-	* Pick the first marker that he saw in the point before and release it in the center
-     	* Pick the other markers and release it beside the first one
+* Go to the center of the arena
+* See the markers that are in the area
+* Pick the first marker that he saw in the point before and release it in the center
+* Pick the other markers and release it beside the first one
 
 ```python
 	v = [] #list of token 
