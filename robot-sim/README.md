@@ -88,7 +88,43 @@ Each `Marker` object has the following attributes:
 * `res`: the value of the `res` parameter of `R.see`, for compatibility with the SR API.
 * `rot_y`: an alias for `centre.rot_y`
 * `timestamp`: the time at which the marker was seen (when `R.see` was called).
+https://studentrobotics.org/docs/programming/sr/
 
-### How the Program Works ###
+ Flowchart
+ ---------------------
 ![image](https://github.com/RominaZe/RT1/assets/146995126/f124557d-1581-402d-a782-0b5c5904b492)
-[sr-api]: https://studentrobotics.org/docs/programming/sr/
+
+
+Explanation
+------------
+ This project's goal is to grab every token of a certain area a then put it all together in one point.
+
+```python
+	v = [] #list of token 
+	p = [] #list of grab token
+	search = True
+	primo = True
+	drive(50,6)
+	search_token(v,search)
+	print(v)
+	code1 = v[0] # define the first token that have to be pick
+	if len(v) == 0: # If there are no token then the program finish 
+		print("There are no token")
+		search = not search
+	while search == True:
+		if primo == True: # If is the first token then run the program primo_token
+			primo_token(code1,v,search)
+			p.append(code1) # append the first value of the token that he grab
+			primo = not primo # for now on there is not more a first token
+		else:
+			for code in v[1:]: # this start from the second token because the first is the  clause of the if
+				take_token(code,code1,v,search)
+				p.append(code)
+		if len(p) == len(v): # when the list of token in the arena is equal to the one that have been grab then the task is finish
+			search = not search
+```
+
+
+
+
+
