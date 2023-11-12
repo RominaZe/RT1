@@ -89,5 +89,10 @@ Each `Marker` object has the following attributes:
 * `rot_y`: an alias for `centre.rot_y`
 * `timestamp`: the time at which the marker was seen (when `R.see` was called).
 
+### How the Program Works ###
+
+
+
+
 
 [sr-api]: https://studentrobotics.org/docs/programming/sr/
