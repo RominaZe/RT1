@@ -90,10 +90,6 @@ Each `Marker` object has the following attributes:
 * `timestamp`: the time at which the marker was seen (when `R.see` was called).
 
 ### How the Program Works ###
-
-
-https://github.com/RominaZe/RT1.wiki.git
-
-
+robot-sim/Flowchart_robot-sim.png
 
 [sr-api]: https://studentrobotics.org/docs/programming/sr/
