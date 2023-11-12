@@ -20,24 +20,10 @@ On Ubuntu, this can be accomplished by:
 * Get the location. In my case this was `/usr/local/lib/python2.7/dist-packages`
 * Create symlink: `ln -s path/to/simulator/sr/robot /usr/local/lib/python2.7/dist-packages/sr/`
 
-## Exercise
------------------------------
-
 To run one or more scripts in the simulator, use `run.py`, passing it the file names. 
 
-I am proposing you three exercises, with an increasing level of difficulty.
-The instruction for the three exercises can be found inside the .py files (exercise1.py, exercise2.py, exercise3.py).
-
-When done, you can run the program with:
-
 ```bash
-$ python run.py exercise1.py
-```
-
-You have also the solutions of the exercises (folder solutions)
-
-```bash
-$ python run.py solutions/exercise1_solution.py
+$ python2 run.py assignment.py
 ```
 
 Robot API
@@ -98,6 +84,11 @@ https://studentrobotics.org/docs/programming/sr/
 Explanation
 ------------
  This project's goal is to grab every token of a certain area a then put it all together in one point.
+ The code should make the robot:
+	* Go to the center of the arena
+	* See the markers that are in the area
+	* Pick the first marker that he saw in the point before and release it in the center
+     	* Pick the other markers and release it beside the first one
 
 ```python
 	v = [] #list of token 
@@ -123,6 +114,8 @@ Explanation
 		if len(p) == len(v): # when the list of token in the arena is equal to the one that have been grab then the task is finish
 			search = not search
 ```
+
+
 
 
 
