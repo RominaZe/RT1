@@ -81,14 +81,18 @@ https://studentrobotics.org/docs/programming/sr/
 ![image](https://github.com/RominaZe/RT1/assets/146995126/f124557d-1581-402d-a782-0b5c5904b492)
 
 
-Explanation
+Marker Aggregation Robot
 ------------
- This project's goal is to grab every token of a certain area a then put it all together in one point.
- The code should make the robot:
-* Go to the center of the arena
-* See the markers that are in the area
-* Pick the first marker that he saw in the point before and release it in the center
-* Pick the other markers and release it beside the first one
+The objective of this project is to create a robot that can collect tokens from a designated area and consolidate them into a single point. The robot will follow these steps:
+
+1. **Navigate to the Center**: The robot will autonomously move to the central location within the arena.
+2. **Observe Markers**: Once positioned at the center, the robot will scan the surroundings to detect markers present in the specified area.
+3. **Token Collection Strategy**:
+* The robot will initially pick up the first marker it encounters.
+* It will then release this marker at the central point.
+* Subsequently, the robot will collect the remaining markers and position them adjacent to the first one.
+
+By following this process, the robot will effectively aggregate all the markers into a single consolidated point. 
 
 ```python
 	v = [] #list of token 
@@ -115,8 +119,15 @@ Explanation
 			search = not search
 ```
 
+## Token Processing Function ##
+The function `take_token` is designed to handle tokens when they are not the first one encountered. It follows a series of steps to process the tokens effectively:
 
-
+1. **Calculate Distance and Angle**: Determine the distance and angle to the target token that we want to reach.
+2. **Retrieve the Target Token**: Obtain the relevant token based on the calculated parameters.
+3. **Check for Unseen Tokens**: Verify if there are other tokens that were not observed during the previous check.
+4. **Release Captured Token**: Release the grabbed token next to the initially captured token.
+   
+(Note that the coordinates used for release are approximate (based on my PC))
 
 
 
