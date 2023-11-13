@@ -88,38 +88,27 @@ The objective of this project is to create a robot that can collect tokens from 
 1. **Navigate to the Center**: The robot will autonomously move to the central location within the arena.
 2. **Observe Markers**: Once positioned at the center, the robot will scan the surroundings to detect markers present in the specified area.
 3. **Token Collection Strategy**:
-* The robot will initially pick up the first marker it encounters.
-* It will then release this marker at the central point.
-* Subsequently, the robot will collect the remaining markers and position them adjacent to the first one.
+	* The robot will initially pick up the first marker it encounters.
+	* It will then release this marker at the central point.
+	* Subsequently, the robot will collect the remaining markers and position them adjacent to the first one.
 
 By following this process, the robot will effectively aggregate all the markers into a single consolidated point. 
 
-```python
-	v = [] #list of token 
-	p = [] #list of grab token
-	search = True
-	primo = True
-	drive(50,6)
-	search_token(v,search)
-	print(v)
-	code1 = v[0] # define the first token that have to be pick
-	if len(v) == 0: # If there are no token then the program finish 
-		print("There are no token")
-		search = not search
-	while search == True:
-		if primo == True: # If is the first token then run the program primo_token
-			primo_token(code1,v,search)
-			p.append(code1) # append the first value of the token that he grab
-			primo = not primo # for now on there is not more a first token
-		else:
-			for code in v[1:]: # this start from the second token because the first is the  clause of the if
-				take_token(code,code1,v,search)
-				p.append(code)
-		if len(p) == len(v): # when the list of token in the arena is equal to the one that have been grab then the task is finish
-			search = not search
-```
+**Note that the coordinates used for release are approximate (based on my PC)**
 
-## Token Processing Function ##
+### Search Token ###
+The `primo_token` function analyzes the area using the `R.see()` method of the robot, adding observed tokens to a list. It then checks if any new tokens are present and appends their values to the list
+
+
+### First Token Function ###
+The function `primo_token` is designed to handle tokens when they are the first one. 
+
+1. **Calculate Distance and Angle**: Determine the distance and angle to the target token that we want to reach.
+2. **Retrieve the Target Token**: Obtain the relevant token based on the calculated parameters.
+3. **Check for Unseen Tokens**: Verify if there are other tokens that were not observed during the previous check.
+4. **Release Captured Token**: Release the grabbed token next to the initially captured token in a certain point.
+
+### Other Tokens Function ###
 The function `take_token` is designed to handle tokens when they are not the first one encountered. It follows a series of steps to process the tokens effectively:
 
 1. **Calculate Distance and Angle**: Determine the distance and angle to the target token that we want to reach.
@@ -127,7 +116,14 @@ The function `take_token` is designed to handle tokens when they are not the fir
 3. **Check for Unseen Tokens**: Verify if there are other tokens that were not observed during the previous check.
 4. **Release Captured Token**: Release the grabbed token next to the initially captured token.
    
-(Note that the coordinates used for release are approximate (based on my PC))
+
+### Gathering Function ###
+The function `get_together` is designed to handle tokens when they are not the first one encountered. It follows a series of steps to process the tokens effectively:
+
+1. **Calculate Distance and Angle**: Determine the distance and angle to the target token that we want to reach.
+2. **Retrieve the Target Token**: Obtain the relevant token based on the calculated parameters.
+3. **Check for Unseen Tokens**: Verify if there are other tokens that were not observed during the previous check.
+4. **Release Captured Token**: Release the grabbed token next to the initially captured token.
 
 
 
