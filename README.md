@@ -124,3 +124,11 @@ The function `get_together` is designed to handle tokens when they are not the f
 2. **Retrieve the Target Token**: Obtain the relevant token based on the calculated parameters.
 3. **Check for Unseen Tokens**: Verify if there are other tokens that were not observed during the previous check.
 4. **Release Captured Token**: Release the grabbed token next to the initially captured token.
+
+
+Possible improvements 
+------------------
+1. **Obstacle Avoidance**: If obstacles are detected, we should implement a function to navigate around them. This ensures that the robot can safely move without colliding with any obstacles in its path.
+2. **Token Separation and Placement**: By understanding the position and type of each token, we can intelligently separate them and place them at specific points. For example, if there are multiple tokens of different types, we can organize them efficiently within the arena.
+3. **Angle Response Optimization**: Sometimes, the robot’s response to the angle between itself and the token may not be optimal. We can fine-tune this behavior to improve accuracy and efficiency.
+4. **Token Interaction**: When a token is released, it’s essential to consider potential interactions between tokens. For instance, if one token pushes another, we need to handle such scenarios.
